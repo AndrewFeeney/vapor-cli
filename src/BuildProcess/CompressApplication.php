@@ -82,7 +82,7 @@ class CompressApplication
      */
     protected function ensureArchiveIsWithinSizeLimits()
     {
-        $sizeInMB ceil($this->getDirectorySize($this->buildPath.'/app') / 1000000);
+        $sizeInMB = ceil($this->getDirectorySize($this->buildPath.'/app') / 1000000);
         $size = ceil($this->getDirectorySize($this->buildPath.'/app') / 1048576);
 
         Helpers::line("Uncompressed size is {$size}MiB or {$sizeInMB}MB");

@@ -56,7 +56,7 @@ class DeployCommand extends Command
             $this->vapor->project(Manifest::id())
         ));
 
-        (new Filesystem())->deleteDirectory(Path::vapor());
+        // (new Filesystem())->deleteDirectory(Path::vapor());
 
         $deployment = $this->handleCancellations($this->vapor->deploy(
             $artifact['id'],

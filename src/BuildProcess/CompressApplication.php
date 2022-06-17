@@ -82,9 +82,13 @@ class CompressApplication
      */
     protected function ensureArchiveIsWithinSizeLimits()
     {
+        $sizeInMB ceil($this->getDirectorySize($this->buildPath.'/app') / 1000000);
         $size = ceil($this->getDirectorySize($this->buildPath.'/app') / 1048576);
 
+        Helpers::line("Uncompressed size is {$size}MiB or {$sizeInMB}MB");
+
         if ($size > 250) {
+  
             Helpers::line();
             Helpers::abort('Application is greater than 250MB. Your application is '.$size.'MB.');
         }

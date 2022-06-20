@@ -25,8 +25,9 @@ class CompressApplication
         }
 
         $appSizeInBytes = $this->getDirectorySize(Path::app());
+        $appSizeInMegabytes = round($appSizeInBytes / 1048576, 2);
 
-        Helpers::step('<options=bold>Compressing Application</> ('.Helpers::megabytes($appSizeInBytes).')');
+        Helpers::step('<options=bold>Compressing Application</> ('.$appSizeInMegabytes.')');
 
         if (PHP_OS == 'Darwin') {
             $this->compressApplicationOnMac();
